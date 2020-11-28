@@ -51,12 +51,8 @@ export default class Section extends Component {
     }
 
     onLeaveFeedback = (type) => {
-        if(type == 'good')
-            this.setState({good: this.state.good + 1})
-        else if(type == 'neutral')
-            this.setState({neutral: this.state.neutral + 1})
-        else if(type == 'bad')
-            this.setState({bad: this.state.bad + 1})
+
+        this.setState({[type]: this.state[type] + 1})
         
     }
 
