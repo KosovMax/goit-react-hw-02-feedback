@@ -30,13 +30,7 @@ export default class Section extends Component {
 
     countTotalFeedback = () => {
         const {good, neutral, bad} = this.state;
-        const array = new Array;
-
-        array.push(good);
-        array.push(neutral);
-        array.push(bad);
-
-        return array.reduce((a, b) => { return a + b});
+        return good + neutral + bad;
     }
 
     countPositiveFeedbackPercentage = () => {
@@ -51,9 +45,9 @@ export default class Section extends Component {
     }
 
     onLeaveFeedback = (type) => {
-
-        this.setState({[type]: this.state[type] + 1})
-        
+        this.setState(prevState => {
+           return { [type]:prevState[type]+1 }
+        }) 
     }
 
     render(){

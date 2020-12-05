@@ -14,8 +14,8 @@ export default class FeedbackOptions extends Component {
         const { options, onLeaveFeedback } = this.props;
         return(
             <div className="group-button">
-                {options.map(option => (
-                    <button type="button" key={option.id} onClick={() => onLeaveFeedback(option.type)}>{option.name}</button>
+                {options.map(({id, type, name}) => (
+                    <button type="button" key={id} onClick={() => onLeaveFeedback(type)}>{name}</button>
                 ))}
             </div>
         );
